@@ -26,7 +26,7 @@ def apply_filter(img, tiles):
             np.random.shuffle(tiles)
             for tile in tiles:
                 curr_dis = color_distance(curr_input, tile)
-                if clo_img == None or curr_dis < clo_dis:
+                if clo_img is None or curr_dis < clo_dis:
                     clo_dis = curr_dis
                     for r in range(0, 20):
                         for c in range(0,20):
