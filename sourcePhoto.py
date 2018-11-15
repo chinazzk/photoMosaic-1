@@ -19,8 +19,8 @@ def sqt_dif(c1, c2):
 
 
 def color_distance(img_1, img_2):
-    img_1 = np.flatten(cv2.resize(img_1, (10, 10)))
-    img_2 = np.flatten(cv2.resize(img_2, (10, 10)))
+    img_1 = img_1.flatten()
+    img_2 = img_2.flatten()
     dis = 0
     for pix_pair in list(zip(img_1, img_2)):
         dis += sqt_dif(pix_pair[0], pix_pair[1])
@@ -35,7 +35,7 @@ def process_whole_folder(path):
         p = path + "/" + file
         curr_img = Image.open(p)
         resized_image = curr_img.resize((20, 20), Image.ANTIALIAS)
-        tile = np.array(resized_image)
-        tiles.append(tiles)
+        tile = np.asarray(resized_image.getdata())
+        tiles.append(tile)
         count += 1
     return tiles

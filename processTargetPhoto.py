@@ -25,7 +25,7 @@ def apply_filter(img, tiles):
                     img[row:row + 20][col:col + 20] = tiles
 
 tiles = process_whole_folder("/Volumes/Extreme 500/FrankZhou's/MoS")
-img = process_whole("/Users/intermediatephoto/Desktop/DSC_0203.jpg")
+img = process_whole(cv2.imread("/Users/intermediatephoto/Desktop/DSC_0203.jpg"))
 apply_filter(img, tiles)
 cv2.imshow(img)
 
