@@ -14,14 +14,17 @@ def process_whole(img):
 def apply_filter(img, tiles):
     for row in range(0, TARGET_IMAGE_SIZE, FILTER_SIZE):
         for col in range(0, TARGET_IMAGE_SIZE, FILTER_SIZE):
-            print("********")
-            curr_input = img[row:row+20][col:col+20]
+            print("CurrPos:")
+            print("Row:" + str(row))
+            print("Col:" + str(col))
+            curr_input = np.empty((20,20, 3))
+            for ro in range(0, 20):
+                for co in range(0, 20):
+                    curr_input[ro][co] = img[row+ro][col+co]
             clo_dis = 0
             clo_img = None
             np.random.shuffle(tiles)
             for tile in tiles:
-                if tile.shape == (0,):
-                    continue
                 curr_dis = color_distance(curr_input, tile)
                 if clo_img == None or curr_dis < clo_dis:
                     clo_dis = curr_dis
