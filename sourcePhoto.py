@@ -28,9 +28,14 @@ def color_distance(img_1, img_2):
 
 def process_whole_folder(path):
     tiles = []
+    count = 0
     for file in os.listdir(path):
+        print("Processed: " + str(count))
+        print("All: " + str(len(os.listdir(path))))
         p = path + "/" + file
         curr_img = Image.open(p)
         resized_image = curr_img.resize((20, 20), Image.ANTIALIAS)
-        tiles.append(resized_image)
+        tile = np.array(resized_image)
+        tiles.append(tiles)
+        count += 1
     return tiles
