@@ -34,7 +34,7 @@ def apply_filter(img, tiles):
             for r in range(0, 20):
                 for c in range(0,20):
                     img[row+r][col+c] = clo_img[r][c]
-            if count % 10 ==0:
+            if count % 100 ==0:
                 print()
                 print("CurrPos:")
                 print("Row:" + str(row))
