@@ -19,8 +19,8 @@ def sqt_dif(c1, c2):
 
 
 def color_distance(img_1, img_2):
-    img_1 = cv2.resize(img_1, (20, 20)).flatten()
-    img_2 = img_2.flatten()
+    img_1 = cv2.resize(img_1, (5, 5)).flatten()
+    img_2 = cv2.resize(img_1, (5, 5)).flatten()
     dis = 0
     for pix_pair in list(zip(img_1, img_2)):
         dis += sqt_dif(pix_pair[0], pix_pair[1])
@@ -34,6 +34,8 @@ def process_whole_folder(path):
         print("All: " + str(len(os.listdir(path))))
         p = path + "/" + file
         curr_img = cv2.imread(p)
+        if curr_img is None or len(curr_img) == 0:
+            continue
         resized_image = cv2.resize(curr_img, (20, 20))
         tiles.append(resized_image)
         count += 1
