@@ -7,9 +7,11 @@ from sourcePhoto import *
 FILTER_SIZE = 20
 TARGET_IMAGE_SIZE = 4000
 
+
 def process_whole(img):
     img = cv2.resize(img, (TARGET_IMAGE_SIZE, TARGET_IMAGE_SIZE))
     return img
+
 
 def apply_filter(img, tiles):
     count = 0
@@ -42,6 +44,7 @@ def apply_filter(img, tiles):
                 print("Estimate Overall Time: " + str((end-start)*40000) + " second")
                 print("Time Used: " + str(end-start_apply_filter) + " second")
                 print("Time Remaining: " + str((end-start)*40000 - (end-start_apply_filter)))
+
 
 tiles = process_whole_folder("/Volumes/Extreme 500/FrankZhou's/MoS")
 img = process_whole(cv2.imread("/Users/intermediatephoto/Desktop/DSC_0211.jpg"))
