@@ -19,8 +19,8 @@ def sqt_dif(c1, c2):
 
 
 def color_distance(img_1, img_2):
-    img_1 = cv2.resize(img_1, (5, 5)).flatten()
-    img_2 = cv2.resize(img_1, (5, 5)).flatten()
+    img_1 = cv2.resize(img_1, (10, 10)).flatten()
+    img_2 = cv2.resize(img_1, (10, 10)).flatten()
     dis = 0
     for pix_pair in list(zip(img_1, img_2)):
         dis += sqt_dif(pix_pair[0], pix_pair[1])
