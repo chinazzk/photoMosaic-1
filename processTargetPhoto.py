@@ -46,8 +46,8 @@ def apply_filter(img, tiles):
                 print("Time Remaining: " + str((end-start)*40000 - (end-start_apply_filter)))
 
 
-tiles = process_whole_folder("/Volumes/Extreme 500/FrankZhou's/MoS")
-img = process_whole(cv2.imread("/Users/intermediatephoto/Desktop/DSC_0211.jpg"))
+tiles = process_whole_folder("/Users/frank/Documents/GitHub/photoMosaic/Mos")
+img = process_whole(cv2.imread("/Users/frank/Documents/GitHub/photoMosaic/IMG_3328.JPG"))
 start_apply_filter = time.time()
 apply_filter(img, tiles)
 np.save("result", img)

@@ -4,6 +4,7 @@ from matplotlib import pyplot as plt
 import time
 import os
 from PIL import Image
+import copy
 
 colors = {"red": (255, 0, 0),
           "green": (0, 128, 0),
@@ -19,8 +20,8 @@ def sqt_dif(c1, c2):
 
 
 def color_distance(img_1, img_2):
-    img_1 = cv2.resize(img_1, (15, 15)).flatten()
-    img_2 = cv2.resize(img_1, (15, 15)).flatten()
+    img_1 = cv2.resize(img_1, (20, 20)).flatten()
+    img_2 = img_2.flatten()
     dis = 0
     for pix_pair in list(zip(img_1, img_2)):
         dis += sqt_dif(pix_pair[0], pix_pair[1])
