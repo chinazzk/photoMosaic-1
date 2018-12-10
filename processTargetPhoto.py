@@ -4,8 +4,8 @@ from matplotlib import pyplot as plt
 import time
 from sourcePhoto import *
 
-FILTER_SIZE = 20
-TARGET_IMAGE_SIZE = 4000
+FILTER_SIZE = 40
+TARGET_IMAGE_SIZE = 8000
 
 
 def process_whole(img):
@@ -19,9 +19,9 @@ def apply_filter(img, tiles):
         for col in range(0, TARGET_IMAGE_SIZE, FILTER_SIZE):
             count +=1
             start = time.time()
-            curr_input = np.empty((20,20, 3))
-            for ro in range(0, 20):
-                for co in range(0, 20):
+            curr_input = np.empty((FILTER_SIZE,FILTER_SIZE, 3))
+            for ro in range(0, FILTER_SIZE):
+                for co in range(0, FILTER_SIZE):
                     curr_input[ro][co] = img[row+ro][col+co]
             clo_dis = 0
             clo_img = None
@@ -31,8 +31,8 @@ def apply_filter(img, tiles):
                 if clo_img is None or curr_dis < clo_dis:
                     clo_dis = curr_dis
                     clo_img = tile
-            for r in range(0, 20):
-                for c in range(0,20):
+            for r in range(0, FILTER_SIZE):
+                for c in range(0,FILTER_SIZE):
                     img[row+r][col+c] = clo_img[r][c]
             if count % 100 ==0:
                 print()
